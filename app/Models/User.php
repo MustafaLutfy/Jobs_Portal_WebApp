@@ -18,16 +18,26 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    public function job()
-    {
+        public function job()
+        {
         return $this->belongsTo(Job::class);
-    }
+        }
 
         public function education(): HasMany
         {
             return $this->hasMany(Education::class);
         }
     
+        public function applies(): HasMany
+        {
+            return $this->hasMany(Apply::class);
+        }
+  
+        public function skills(): BelongsToMany
+        {
+            return $this->belongsToMany(Skill::class);
+        }
+     
     /**
      * The attributes that are mass assignable.
      *

@@ -12,5 +12,16 @@ class Offer extends Model
     public function company(): BelongsTo
    {
        return $this->belongsTo(Company::class);
-   }    
+   }
+
+   public function skills(): belongsTo
+   {
+       return $this->belongsToMany(Skill::class);
+   }
+
+   public function applies(): HasMany
+   {
+       return $this->hasMany(Apply::class);
+   }
+   
 }
