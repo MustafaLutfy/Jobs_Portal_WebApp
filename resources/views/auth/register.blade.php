@@ -6,17 +6,45 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-label for="first_name" value="{{ __('First Name') }}" />
+                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
+            </div>
+            <div>
+                <x-label for="last_name" value="{{ __('Last Name') }}" />
+                <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
+            </div>
+            <div>
+                <x-label for="phone" value="{{ __('phone') }}" />
+                <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            </div>
+            <div>
+                <x-label for="country" value="{{ __('country') }}" />
+                <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus autocomplete="country" />
+            </div>
+            <div>
+                <x-label for="city" value="{{ __('city') }}" />
+                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
+            </div>
+            <div>
+                <x-label for="exp" value="{{ __('exp') }}" />
+                <x-input id="exp" class="block mt-1 w-full" type="text" name="exp" :value="old('exp')" required autofocus autocomplete="exp" />
+            </div>
+            <div>
+                <x-label for="birth_date" value="{{ __('birth_date') }}" />
+                <x-input id="birth_date" class="block mt-1 w-full" type="date" name="birth_date" :value="old('birth_date')" required autofocus autocomplete="birth_date" />
             </div>
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
+            <div class="mt-4">
+                <x-label for="current_pos" value="{{ __('current_pos') }}" />
+                <x-input id="current_pos" class="block mt-1 w-full" type="current_pos" name="current_pos" :value="old('current_pos')" required autocomplete="current_pos" />
             </div>
 
             <div class="mt-4">
@@ -27,6 +55,9 @@
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+            <div class="mt-4">
+                <x-input id="image" class="block mt-1 w-full" type="file" name="image" required autocomplete="image" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

@@ -22,14 +22,14 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->longText('exp')->nullable();
-            $table->date('birth_date')->nullable();;
-            $table->string('current_pos');
+            $table->date('birth_date')->nullable();
+            $table->string('current_pos')->nullable();
             $table->boolean('job_searching')->nullable()->default(false);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('job_id');
+            $table->unsignedBigInteger('job_id')->nullable();
             $table->foreign('job_id')->references('id')->on('jobs');
         });
     }
